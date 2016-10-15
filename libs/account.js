@@ -51,6 +51,15 @@ module.exports = {
     });
   },
   updateAccount         : function(accountId, account) {
+    return request({
+      'url'    : this.urlWithEntity()+accountId,
+      'method' : 'PUT',
+      'qs'     : {
+        'key' : this.apiKey()
+      },
+      'body'   : account,
+      'json'   : true
+    });
   },
   createAccount         : function(custID, account) {
   },
