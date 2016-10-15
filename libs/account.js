@@ -29,6 +29,13 @@ module.exports = {
     });
   },
   getAccountById        : function(id) {
+    return request({
+      'url'  : this.urlWithEntity()+id,
+      'qs'   : {
+        'key' : this.apiKey()
+      },
+      'json' : true
+    });
   },
   getAllByCustomerId : function(customerId) {
   },
