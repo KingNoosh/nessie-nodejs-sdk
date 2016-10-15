@@ -7,3 +7,4 @@ module.exports = {
 };
 
 module.exports.account    = require('./account.js');
+module.exports.atm        = require('./atm.js');
