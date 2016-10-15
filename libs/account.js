@@ -10,6 +10,13 @@ module.exports = {
     return module.parent.exports.baseUrl+'/customers/';
   },
   getAllAccounts        : function() {
+    return request({
+      'url'  : this.urlWithEntity(),
+      'qs'   : {
+        'key' : this.apiKey()
+      },
+      'json' : true
+    });
   },
   getAllByType          : function(type) {
   },
