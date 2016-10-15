@@ -1,12 +1,18 @@
 module.exports = {
-  baseUrl   : "http://api.reimaginebanking.com:80",
-  apiKey    : "",
-  setApiKey : function(apiKey) {
+  baseUrl    : "http://api.reimaginebanking.com:80",
+  apiKey     : "",
+  setApiKey  : function(apiKey) {
     this.apiKey = apiKey;
-  }
+  },
+  account    : require('./account.js'),
+  atm        : require('./atm.js'),
+  bills      : require('./bills.js'),
+  branch     : require('./branch.js'),
+  customer   : require('./customer.js'),
+  deposit    : require('./deposit.js'),
+  merchant   : require('./merchant.js'),
+  purchase   : require('./purchase.js'),
+  transfer   : require('./transfer.js'),
+  withdrawal : require('./withdrawal.js')
 };
 
-module.exports.account    = require('./account.js');
-module.exports.atm        = require('./atm.js');
-module.exports.bills      = require('./bills.js');
-module.exports.branch     = require('./branch.js');

@@ -9,7 +9,7 @@ module.exports = {
   urlWithCustomerEntity : function() {
     return module.parent.exports.baseUrl+'/customers/';
   },
-  getAllAccounts        : function() {
+  getAll                : function() {
     return request({
       'url'    : this.urlWithEntity(),
       'method' :'GET',
@@ -30,7 +30,7 @@ module.exports = {
       'json'  : true
     });
   },
-  getAccountById        : function(id) {
+  getById               : function(id) {
     return request({
       'url'    : this.urlWithEntity()+id,
       'method' :'GET',
@@ -50,7 +50,7 @@ module.exports = {
       'json'   : true
     });
   },
-  updateAccount         : function(accountId, account) {
+  update                : function(accountId, account) {
     return request({
       'url'    : this.urlWithEntity()+accountId,
       'method' : 'PUT',
@@ -61,7 +61,7 @@ module.exports = {
       'json'   : true
     });
   },
-  createAccount         : function(custID, account) {
+  create                : function(custID, account) {
     return request({
       'url'    : this.urlWithCustomerEntity()+custID+'/accounts',
       'method' : 'POST',
@@ -72,7 +72,7 @@ module.exports = {
       'json'   : true
     });
   },
-  deleteAccount         : function(accountId) {
+  delete                : function(accountId) {
     return request({
       'url'    : this.urlWithEntity()+accountId,
       'method' : 'DELETE',

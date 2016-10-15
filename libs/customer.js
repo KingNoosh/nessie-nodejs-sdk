@@ -1,20 +1,17 @@
 const request = require('request-promise');
 module.exports = {
-  apiKey                : function() {
+  apiKey               : function() {
     return module.parent.exports.apiKey;
   },
-  urlWithEntity         : function() {
-    return module.parent.exports.baseUrl+'/bills/';
-  },
-  urlWithAccountEntity  : function() {
-    return module.parent.exports.baseUrl+'/accounts/';
-  },
-  urlWithCustomerEntity : function() {
+  urlWithEntity        : function() {
     return module.parent.exports.baseUrl+'/customers/';
   },
-  getAllByAccountId     : function(accID) {
+  urlWithAccountEntity : function() {
+    return module.parent.exports.baseUrl+'/accounts/';
+  },
+  getAll               : function() {
     return request({
-      'url'    : this.urlWithAccountEntity()+accID+'/bills',
+      'url'    : this.urlWithEntity(),
       'method' :'GET',
       'qs'     : {
         'key' : this.apiKey()
@@ -22,17 +19,7 @@ module.exports = {
       'json'   : true
     });
   },
-  getAllByCustomerId    : function(custID) {
-    return request({
-      'url'    : this.urlWithCustomerEntity()+custID+'/bills',
-      'method' :'GET',
-      'qs'     : {
-        'key' : this.apiKey()
-      },
-      'json'   : true
-    });
-  },
-  getById               : function(id) {
+  getById              : function(id) {
     return request({
       'url'    : this.urlWithEntity()+id,
       'method' :'GET',
@@ -42,7 +29,17 @@ module.exports = {
       'json'   : true
     });
   },
-  update                : function(id, json) {
+  getAllByAccountId    : function(accId) {
+    return request({
+      'url'    : this.urlWithAccountEntity()+accId+'/customer',
+      'method' :'GET',
+      'qs'     : {
+        'key' : this.apiKey()
+      },
+      'json'   : true
+    });
+  },
+  update               : function(id, json) {
     return request({
       'url'    : this.urlWithEntity()+id,
       'method' : 'PUT',
@@ -53,24 +50,14 @@ module.exports = {
       'json'   : true
     });
   },
-  create                : function(accID, json) {
+  create               : function(json) {
     return request({
-      'url'    : this.urlWithAccountEntity()+accID+'/bills',
+      'url'    : this.urlWithEntity(),
       'method' : 'POST',
       'qs'     : {
         'key' : this.apiKey()
       },
       'body'   : json,
-      'json'   : true
-    });
-  },
-  delete                : function(id) {
-    return request({
-      'url'    : this.urlWithEntity()+id,
-      'method' : 'DELETE',
-      'qs'     : {
-        'key' : this.apiKey()
-      },
       'json'   : true
     });
   }

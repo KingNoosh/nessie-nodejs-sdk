@@ -4,7 +4,7 @@ module.exports = {
     return module.parent.exports.apiKey;
   },
   urlWithEntity : function() {
-    return module.parent.exports.baseUrl+'/atms/';
+    return module.parent.exports.baseUrl+'/merchants/';
   },
   getAll        : function() {
     return request({
@@ -26,17 +26,26 @@ module.exports = {
       'json'   : true
     });
   },
-  getByLocation : function(lat, lng, rad) {
+  update        : function(id, json) {
     return request({
-      'url'    : this.urlWithEntity(),
-      'method' :'GET',
+      'url'    : this.urlWithEntity()+id,
+      'method' : 'PUT',
       'qs'     : {
-        'key' : this.apiKey(),
-        'lat' : lat,
-        'lng' : lng,
-        'rad' : rad
+        'key' : this.apiKey()
       },
+      'body'   : json,
       'json'   : true
     });
   },
+  create        : function(json) {
+    return request({
+      'url'    : this.urlWithEntity(),
+      'method' : 'POST',
+      'qs'     : {
+        'key' : this.apiKey()
+      },
+      'body'   : json,
+      'json'   : true
+    });
+  }
 };

@@ -16,7 +16,7 @@ module.exports = {
       'json'   : true
     });
   },
-  getBranch     : function(id) {
+  getById       : function(id) {
     return request({
       'url'    : this.urlWithEntity()+id,
       'method' :'GET',

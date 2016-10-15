@@ -1,20 +1,17 @@
 const request = require('request-promise');
 module.exports = {
-  apiKey                : function() {
+  apiKey               : function() {
     return module.parent.exports.apiKey;
   },
-  urlWithEntity         : function() {
-    return module.parent.exports.baseUrl+'/bills/';
+  urlWithEntity        : function() {
+    return module.parent.exports.baseUrl+'/withdrawals/';
   },
-  urlWithAccountEntity  : function() {
+  urlWithAccountEntity : function() {
     return module.parent.exports.baseUrl+'/accounts/';
   },
-  urlWithCustomerEntity : function() {
-    return module.parent.exports.baseUrl+'/customers/';
-  },
-  getAllByAccountId     : function(accID) {
+  getAllByAccountId    : function(accID) {
     return request({
-      'url'    : this.urlWithAccountEntity()+accID+'/bills',
+      'url'    : this.urlWithAccountEntity()+accID+'/withdrawals',
       'method' :'GET',
       'qs'     : {
         'key' : this.apiKey()
@@ -22,17 +19,7 @@ module.exports = {
       'json'   : true
     });
   },
-  getAllByCustomerId    : function(custID) {
-    return request({
-      'url'    : this.urlWithCustomerEntity()+custID+'/bills',
-      'method' :'GET',
-      'qs'     : {
-        'key' : this.apiKey()
-      },
-      'json'   : true
-    });
-  },
-  getById               : function(id) {
+  getById              : function(id) {
     return request({
       'url'    : this.urlWithEntity()+id,
       'method' :'GET',
@@ -42,7 +29,7 @@ module.exports = {
       'json'   : true
     });
   },
-  update                : function(id, json) {
+  update               : function(id, json) {
     return request({
       'url'    : this.urlWithEntity()+id,
       'method' : 'PUT',
@@ -53,9 +40,9 @@ module.exports = {
       'json'   : true
     });
   },
-  create                : function(accID, json) {
+  create               : function(accID, json) {
     return request({
-      'url'    : this.urlWithAccountEntity()+accID+'/bills',
+      'url'    : this.urlWithAccountEntity()+accID+'/withdrawals',
       'method' : 'POST',
       'qs'     : {
         'key' : this.apiKey()
@@ -64,7 +51,7 @@ module.exports = {
       'json'   : true
     });
   },
-  delete                : function(id) {
+  delete               : function(id) {
     return request({
       'url'    : this.urlWithEntity()+id,
       'method' : 'DELETE',
