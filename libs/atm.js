@@ -1,42 +1,33 @@
 const request = require('request-promise');
+
 module.exports = {
-  apiKey        : function() {
-    return module.parent.exports.apiKey;
-  },
-  urlWithEntity : function() {
-    return module.parent.exports.baseUrl+'/atms/';
-  },
-  getAll        : function() {
-    return request({
-      'url'    : this.urlWithEntity(),
-      'method' :'GET',
-      'qs'     : {
-        'key' : this.apiKey()
-      },
-      'json'   : true
-    });
-  },
-  getById       : function(id) {
-    return request({
-      'url'    : this.urlWithEntity()+id,
-      'method' :'GET',
-      'qs'     : {
-        'key' : this.apiKey()
-      },
-      'json'   : true
-    });
-  },
-  getByLocation : function(lat, lng, rad) {
-    return request({
-      'url'    : this.urlWithEntity(),
-      'method' :'GET',
-      'qs'     : {
-        'key' : this.apiKey(),
-        'lat' : lat,
-        'lng' : lng,
-        'rad' : rad
-      },
-      'json'   : true
-    });
-  },
+  apiKey: () => module.parent.exports.apiKey,
+  urlWithEntity: () => `${module.parent.exports.baseUrl}/atms/`,
+  getAll: () => request({
+    url: this.urlWithEntity(),
+    method: 'GET',
+    qs: {
+      key: this.apiKey(),
+    },
+    json: true,
+  }),
+  getById: id => request({
+    url: this.urlWithEntity() + id,
+    method: 'GET',
+    qs: {
+      key: this.apiKey(),
+    },
+    json: true,
+  }),
+  getByLocation: (lat, lng, rad) => request({
+    url: this.urlWithEntity(),
+    method: 'GET',
+    qs: {
+      key: this.apiKey(),
+      lat,
+      lng,
+      rad,
+    },
+    json: true,
+  }),
 };
