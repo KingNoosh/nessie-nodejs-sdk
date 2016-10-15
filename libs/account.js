@@ -41,6 +41,14 @@ module.exports = {
     });
   },
   getAllByCustomerId : function(customerId) {
+    return request({
+      'url'    : this.urlWithCustomerEntity()+customerId+'/accounts',
+      'method' :'GET',
+      'qs'     : {
+        'key' : this.apiKey()
+      },
+      'json'   : true
+    });
   },
   updateAccount         : function(accountId, account) {
   },
