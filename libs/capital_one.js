@@ -5,3 +5,5 @@ module.exports = {
     this.apiKey = apiKey;
   }
 };
+
+module.exports.account    = require('./account.js');
