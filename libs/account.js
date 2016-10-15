@@ -19,6 +19,14 @@ module.exports = {
     });
   },
   getAllByType          : function(type) {
+    return request({
+      'url'  : this.urlWithEntity(),
+      'qs'   : {
+        'key' : this.apiKey(),
+        'type': type
+      },
+      'json' : true
+    });
   },
   getAccountById        : function(id) {
   },
