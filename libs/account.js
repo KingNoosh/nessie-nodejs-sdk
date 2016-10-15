@@ -73,5 +73,13 @@ module.exports = {
     });
   },
   deleteAccount         : function(accountId) {
+    return request({
+      'url'    : this.urlWithEntity()+accountId,
+      'method' : 'DELETE',
+      'qs'     : {
+        'key' : this.apiKey()
+      },
+      'json'   : true
+    });
   }
 };
