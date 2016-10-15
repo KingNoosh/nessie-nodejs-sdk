@@ -9,6 +9,7 @@
   "author": "Anosh Malik (me@ano.sh)",
   "license": "MIT",
   "dependencies": {
+    "request": "^2.75.0",
     "request-promise": "^4.1.1"
   }
 }
