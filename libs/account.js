@@ -1,6 +1,6 @@
-const request               = require('request-promise');
+const request = require('request-promise');
 module.exports = {
-  apiKey             : function() {
+  apiKey                : function() {
     return module.parent.exports.apiKey;
   },
   urlWithEntity         : function() {
@@ -40,7 +40,7 @@ module.exports = {
       'json'   : true
     });
   },
-  getAllByCustomerId : function(customerId) {
+  getAllByCustomerId    : function(customerId) {
     return request({
       'url'    : this.urlWithCustomerEntity()+customerId+'/accounts',
       'method' :'GET',

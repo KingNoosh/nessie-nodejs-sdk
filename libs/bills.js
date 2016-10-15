@@ -1,4 +1,4 @@
-const request               = require('request-promise');
+const request = require('request-promise');
 module.exports = {
   apiKey                : function() {
     return module.parent.exports.apiKey;
