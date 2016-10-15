@@ -4,9 +4,6 @@ module.exports = {
     return module.parent.exports.apiKey;
   },
   urlWithEntity         : function() {
-    return module.parent.exports.baseUrl+'/accounts/';
-  },
-  urlWithCustomerEntity : function() {
-    return module.parent.exports.baseUrl+'/customers/';
+    return module.parent.exports.baseUrl+'/atms/';
   }
 };
