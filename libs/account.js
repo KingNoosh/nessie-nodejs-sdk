@@ -62,6 +62,15 @@ module.exports = {
     });
   },
   createAccount         : function(custID, account) {
+    return request({
+      'url'    : this.urlWithCustomerEntity()+custID+'/accounts',
+      'method' : 'POST',
+      'qs'     : {
+        'key' : this.apiKey()
+      },
+      'body'   : account,
+      'json'   : true
+    });
   },
   deleteAccount         : function(accountId) {
   }
