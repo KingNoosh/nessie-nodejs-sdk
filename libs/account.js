@@ -11,30 +11,33 @@ module.exports = {
   },
   getAllAccounts        : function() {
     return request({
-      'url'  : this.urlWithEntity(),
-      'qs'   : {
-        'key' : this.apiKey()
+      'url'    : this.urlWithEntity(),
+      'method' :'GET',
+      'qs'     : {
+        'key'  : this.apiKey()
       },
-      'json' : true
+      'json'   : true
     });
   },
   getAllByType          : function(type) {
     return request({
-      'url'  : this.urlWithEntity(),
-      'qs'   : {
-        'key' : this.apiKey(),
-        'type': type
+      'url'   : this.urlWithEntity(),
+      'method':'GET',
+      'qs'    : {
+        'key'  : this.apiKey(),
+        'type' : type
       },
-      'json' : true
+      'json'  : true
     });
   },
   getAccountById        : function(id) {
     return request({
-      'url'  : this.urlWithEntity()+id,
-      'qs'   : {
+      'url'    : this.urlWithEntity()+id,
+      'method' :'GET',
+      'qs'     : {
         'key' : this.apiKey()
       },
-      'json' : true
+      'json'   : true
     });
   },
   getAllByCustomerId : function(customerId) {
