@@ -1,0 +1,14 @@
+{
+  "name": "nessie-nodejs-sdk",
+  "version": "1.0.0",
+  "description": "Nessie SDK for Node",
+  "main": "./libs/capital_one.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anosh Malik (me@ano.sh)",
+  "license": "MIT",
+  "dependencies": {
+    "request-promise": "^4.1.1"
+  }
+}
